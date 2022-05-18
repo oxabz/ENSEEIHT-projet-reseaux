@@ -6,10 +6,10 @@ from subprocess import run
 def start():
     hostname = "router"
 
-    internal_int_name = "enp0s8"
+    internal_int_name = "enp0s9"
     internal_int_ip = "10.0.0.1/24"
 
-    external_int_name = "enp0s9"
+    external_int_name = "enp0s8"
     external_int_ip = "120.0.24.14/30"
 
     gateway_ip = "120.0.24.14"

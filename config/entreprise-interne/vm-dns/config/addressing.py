@@ -7,7 +7,7 @@ def start():
     hostname = "dns1"
 
     int_name = "enp0s8"
-    int_ip = "10.0.0.20"
+    int_ip = "10.0.0.20/24"
 
     gateway_ip = "10.0.0.1"
 
