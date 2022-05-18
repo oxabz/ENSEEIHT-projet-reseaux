@@ -1,4 +1,3 @@
 #!/bin/sh
 
-
-apt install isc-dhcp-server
+yay -Syu dhcp

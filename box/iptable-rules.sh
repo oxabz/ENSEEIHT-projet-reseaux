@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IP_INT = $( ip -f inet addr show wlo1 | grep -Po 'inet \K[\d.]+')
+IP_INT=$( ip -f inet addr show enp0s8 | grep -Po 'inet \K[\d.]+')
 
 # Désactiver le pare-feu
 iptablesoff() {
@@ -67,15 +67,15 @@ iptableson() {
   iptables -t filter -A INPUT -i enp0s9 -p tcp --dport ssh -j ACCEPT 
 
   ### Client to Outside
-  iptables -t filter -A FORWARD -i enp0s9 -j ACCEPT  
+  iptables -t filter -A FORWARD -i enp0s9 -j ACCEPT
 
   echo "[Firewall started]"
 }
 
-if [ $1 = "start" ]; then
-  iptableson()
-elif [ $1 = "stop"]; then
-  iptablesoff()
-else
-  echo "'start' or 'stop' ?"  
+echo $IP_INT
+
+if [ !$IP_INT ];then
+#  iptablesoff
+  iptableson
+  ip route add default dev enp0s8
 fi
