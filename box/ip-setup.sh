@@ -1,4 +1,9 @@
-ip link set up enp0s8
-ip link set up enp0s9
-ip a add 192.168.1/24 dev enp0s9
-dhclient enp0s8& 
+systemctl disable NetworkManager.service
+systemctl stop NetworkManager.service
+
+systemctl enable systemd-networkd.service
+systemctl start systemd-networkd.service
+
+cp 20-wired.network /etc/systemd/network/20-wired.network
+
+systemctl restart systemd-networkd.service
