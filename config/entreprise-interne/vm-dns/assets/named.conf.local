@@ -1,0 +1,5 @@
+zone "as1.n7" {
+    type master;
+    file "/etc/bind/zones/db.nyc3.example.com"; # zone file path
+    allow-transfer { 10.128.20.12; };         # ns2 private IP address - secondary
+};
