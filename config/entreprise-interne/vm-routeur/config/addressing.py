@@ -24,6 +24,9 @@ def start():
     run("systemctl stop firewalld".split(" "))
     run("systemctl disable firewalld".split(" "))
     run("systemctl mask firewalld".split(" "))
+    
+    # enable ip forwarding
+    run("echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf".split(" "))
 
     # === Gateway interface configuration
 

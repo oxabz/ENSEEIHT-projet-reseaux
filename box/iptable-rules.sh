@@ -60,7 +60,7 @@ iptableson() {
 
   ### Règles de NAT
   # Clients -> Internet
-  iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -j SNAT --to-source ${IP_INT}
+  iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -j SNAT --to-source ${IP_INT}
 
   ### Clients to Router
   # SSH

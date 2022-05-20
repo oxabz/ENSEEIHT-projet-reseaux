@@ -1,5 +1,6 @@
-from subprocess import run
+#!/usr/bin/env python3
 
-#run(["dnf","up","--refresh"])
-run("dnf up --refresh".split(" "))
+import network.addressing as network
+
+network.start()
 
