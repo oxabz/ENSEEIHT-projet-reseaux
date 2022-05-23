@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-
-from subprocess import run
+import sys
+from subprocess import Popen
 
 
 def start():
-    run("twistd -n web --path ./web/website/ --listen tcp:8000 &")
+    Popen("twistd -n web --path ./web/website/ --listen tcp:8000".split(" ") + sys.argv[1:] )
