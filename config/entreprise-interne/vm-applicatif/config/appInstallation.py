@@ -7,8 +7,8 @@ def start():
     # Packages that need to be installed
     packages = [
         "podman",
-        "podman-compose"
-        
+        "podman-compose",
+        "python3-twisted"
     ]
 
     # Install epel
