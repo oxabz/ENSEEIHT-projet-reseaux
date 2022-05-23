@@ -1,0 +1,13 @@
+sh -c 'umask 077
+touch /etc/wireguard/wg0.conf'
+cd /etc/wireguard/
+umask 077
+ wg genkey | tee privatekey | wg pubkey > publickey
+ls -l publickey privatekey
+cat privatekey
+cat publickkey
+
+systemctl enable wg-quick@wg0
+systemctl start wg-quick@wg0
+
+
