@@ -1,0 +1,23 @@
+options {
+	directory "/var/cache/bind";
+
+	forwarders {
+		1.1.1.1;
+	};
+	
+	dnssec-validation no;
+	listen-on { any; };
+	listen-on-v6 { any; };
+	allow-recursion { any; };
+	querylog yes;
+};
+
+logging {
+	channel default_debug {
+                file "/var/named/data/named.log";
+                severity debug 3;
+		print-category yes;
+		print-severity yes;
+		print-time yes;
+        };
+};

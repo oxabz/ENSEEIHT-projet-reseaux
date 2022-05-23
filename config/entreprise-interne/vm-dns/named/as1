@@ -1,0 +1,13 @@
+$TTL	604800
+@	IN	SOA	dns.as1.	dns-admin.as1.	(
+			2	;Serial
+			604800	;Refresh
+			86400 	;Retry
+			2419200 ;Expire
+			604800 );Negative CAche TTL
+;
+
+www	IN	A	120.0.24.14
+dns	IN	A	120.0.24.14
+
+as1.	IN	NS	dns.as1.

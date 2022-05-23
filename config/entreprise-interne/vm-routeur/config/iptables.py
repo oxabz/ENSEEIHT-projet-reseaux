@@ -12,6 +12,7 @@ def start():
     # DNS server properties
     dns_server_ip = "10.0.0.20"
     dns_server_ext_ssh_port = "221"
+    dns_server_ext_dns_port = "53"
     # Application server properties
     app_server_ip = "10.0.0.30"
     app_server_ext_ssh_port = "222"
@@ -36,6 +37,10 @@ def start():
     # NAT rule for the DNS server
     run("iptables -t nat -A PREROUTING -p tcp -d {dip} --dport {dport} -j DNAT --to-destination {rip}:22"
         .format(dip=external_int_ip, dport=dns_server_ext_ssh_port, rip=dns_server_ip)
+        .split(" "))
+
+    run("iptables -t nat -A PREROUTING -p udp -d {dip} --dport {dport} -j DNAT --to-destination {rip}:53"
+        .format(dip=external_int_ip, dport=dns_server_ext_dns_port, rip=dns_server_ip)
         .split(" "))
 
     # NAT rule for the application server
