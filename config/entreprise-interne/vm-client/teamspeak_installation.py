@@ -2,7 +2,9 @@
 
 from subprocess import run
 
+
 def start():
+    # Packages that need to be installed
     packages = []
 
     # wget on url ts client

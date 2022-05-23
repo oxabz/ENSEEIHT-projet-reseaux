@@ -4,11 +4,14 @@ from subprocess import run
 
 
 def start():
+    # Server properties
     hostname = "client"
 
+    # Internal interface properties
     int_name = "enp0s8"
     int_ip = "10.0.0.40/24"
 
+    # Gateway properties
     gateway_ip = "10.0.0.1"
 
     # === General configuration

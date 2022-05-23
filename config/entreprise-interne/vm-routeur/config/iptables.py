@@ -5,17 +5,22 @@ from subprocess import run
 
 def start():
 
+    # External interface properties
     external_int_name = "enp0s8"
     external_int_ip = "120.0.24.14"
 
+    # DNS server properties
     dns_server_ip = "10.0.0.20"
     dns_server_ext_ssh_port = "221"
+    # Application server properties
     app_server_ip = "10.0.0.30"
     app_server_ext_ssh_port = "222"
+    # Client properties
     cli_server_ip = "10.0.0.40"
     cli_server_ext_ssh_port = "223"
 
     # Clear all iptables entries
+    # Beware: uncommenting this may break VirtualBox's automatic bridging configuration
     #run("iptables -F".split(" "))
     #run("iptables -t nat -F".split(" "))
     #run("iptables -t mangle -F".split(" "))

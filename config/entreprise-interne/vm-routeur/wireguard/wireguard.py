@@ -15,5 +15,6 @@ def start():
     run("cp ./wireguard/wg0.conf".split(" "))
 
     # Start and enable wireguard service
+    run("systemctl stop wg-quick@wg0.service".split(" "))
     run("systemctl enable wg-quick@wg0.service".split(" "))
     run("systemctl start wg-quick@wg0.service".split(" "))
