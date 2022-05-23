@@ -1,0 +1,12 @@
+$TTL	0H	
+24.0.120.in-addr.arpa.	IN	SOA	dns.as1.	dns-admin.as1.	(
+			3	;Serial
+			604800	;Refresh
+			86400 	;Retry
+			2419200 ;Expire
+			604800 );Negative CAche TTL
+
+@	IN	NS	dns.as1.
+
+14.24.0.120.in-addr.arpa.	IN	PTR	www.as1.
+14.24.0.120.in-addr.arpa.	IN	PTR	dns.as1.
