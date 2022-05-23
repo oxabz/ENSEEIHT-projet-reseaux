@@ -16,9 +16,9 @@ def start():
     cli_server_ext_ssh_port = "223"
 
     # Clear all iptables entries
-    run("iptables -F".split(" "))
-    run("iptables -t nat -F".split(" "))
-    run("iptables -t mangle -F".split(" "))
+    #run("iptables -F".split(" "))
+    #run("iptables -t nat -F".split(" "))
+    #run("iptables -t mangle -F".split(" "))
 
     # Add Source NAT rule to enable internal clients to communicate with the outside
     run("iptables -t nat -A POSTROUTING -o {int} -j SNAT --to-source {ip}".format(int=external_int_name, ip=external_int_ip).split(" "))
