@@ -15,6 +15,9 @@ def start():
     # Application server properties
     app_server_ip = "10.0.0.30"
     app_server_ext_ssh_port = "222"
+    app_server_ext_web_port = "80"
+    app_server_int_web_port = "8080"
+
     # Client properties
     cli_server_ip = "10.0.0.40"
     cli_server_ext_ssh_port = "223"
@@ -43,4 +46,9 @@ def start():
     # NAT rule for the client computer
     run("iptables -t nat -A PREROUTING -p tcp -d {dip} --dport {dport} -j DNAT --to-destination {rip}:22"
         .format(dip=external_int_ip, dport=cli_server_ext_ssh_port, rip=cli_server_ip)
+        .split(" "))
+
+    # NAT rule for the application server
+    run("iptables -t nat -A PREROUTING -p tcp -d {dip} --dport {dport} -j DNAT --to-destination {rip}:{rport}"
+        .format(dip=external_int_ip, dport=app_server_ext_web_port, rip=app_server_ip, rport=app_server_int_web_port)
         .split(" "))
