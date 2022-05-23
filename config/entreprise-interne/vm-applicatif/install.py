@@ -17,4 +17,4 @@ ts.start()
 web.start()
 
 # Disable the previsouly enabled interface
-run("ip link set dev enp0s3 up".split(" "))
+run("ip link set dev enp0s3 down".split(" "))
