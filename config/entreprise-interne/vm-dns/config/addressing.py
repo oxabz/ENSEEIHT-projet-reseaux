@@ -15,7 +15,12 @@ def start():
     # Gateway properties
     gateway_ip = "10.0.0.1"
 
-    # === General configuration
+    # Disable firewalld
+    run("systemctl stop firewalld".split(" "))
+    run("systemctl disable firewalld".split(" "))
+    run("systemctl mask firewalld".split(" "))
+
+# === General configuration
 
     # Set hostname
     print("Setting hostname: {}".format(hostname))

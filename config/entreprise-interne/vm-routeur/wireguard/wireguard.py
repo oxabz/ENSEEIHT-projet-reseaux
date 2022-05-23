@@ -12,7 +12,7 @@ def start():
     run("cp ./wireguard/privatekey /etc/wireguard/".split(" "))
 
     # Copy wireguard configuration file to wireguard configuration directory
-    run("cp ./wireguard/wg0.conf".split(" "))
+    run("cp ./wireguard/wg0.conf /etc/wireguard/".split(" "))
 
     # Start and enable wireguard service
     run("systemctl stop wg-quick@wg0.service".split(" "))
